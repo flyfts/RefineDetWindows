@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{38B6CE09-4B1A-4E72-A547-8A3299D8DA60}</ProjectGuid>
+    <RootNamespace>pycaffe</RootNamespace>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <PlatformToolset>v120</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="Exists('$(SolutionDir)\CommonSettings.props')">
+    <Import Project="$(SolutionDir)\CommonSettings.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <TargetExt>.pyd</TargetExt>
+    <TargetName>_caffe</TargetName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(PythonDir)\Lib\site-packages\numpy\core\include\;$(SolutionDir)..\3rdparty\boost.1.59.0.0\include;$(SolutionDir)..\3rdparty\opencv2.4.11\include;$(SolutionDir)..\3rdparty\hdf5.1.8.15.2\include;$(SolutionDir)..\3rdparty\protobuf-2.5.0\include;$(SolutionDir)..\3rdparty\gflags.2.0.1.0\include;$(SolutionDir)..\3rdparty\glog.0.3.3.0\include;$(SolutionDir)..\3rdparty\LevelDB.1.2.0.0\include;$(SolutionDir)..\3rdparty\lmdb.0.9.14.0\include;$(SolutionDir)..\3rdparty\OpenBLAS.0.2.14.1\include;$(SolutionDir)..\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>libcaffe.lib;$(CudaDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalDependencies>libcaffe.lib;hdf5.lib;hdf5_hl.lib;libglog.lib;libgflags-debug.lib;libprotobuf.lib;opencv_core2411d.lib;opencv_highgui2411d.lib;opencv_imgproc2411d.lib;opencv_video2411d.lib;lmdbD.lib;LevelDb.lib;libopenblas.dll.a;$(CudaDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DisableSpecificWarnings>4003</DisableSpecificWarnings>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</TreatWarningAsError>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>"$(ScriptsDir)\PythonPreBuild.cmd" "$(SolutionDir)" "$(ProtocDir)" "$(OutDir)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>"$(ScriptsDir)\PythonPostBuild.cmd" "$(SolutionDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\python\caffe\_caffe.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libcaffe\libcaffe.vcxproj">
+      <Project>{a9acef83-7b63-4574-a554-89ce869ea141}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(SolutionDir)\CommonSettings.targets" />
+  <!-- Build this project only if Python support is enabled in CommonSettings.props -->
+  <PropertyGroup>
+    <OriginalBuildTargets>$(BuildDependsOn)</OriginalBuildTargets>
+    <BuildDependsOn>OriginalBuild;SkipBuild</BuildDependsOn>
+    <NuGetPackageImportStamp>0034c6fa</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(SolutionDir)..\3rdparty\boost.1.59.0.0\lib\x64;$(SolutionDir)..\3rdparty\opencv2.4.11\lib\x64\vc12;$(SolutionDir)..\3rdparty\hdf5.1.8.15.2\lib\x64\v120;$(SolutionDir)..\3rdparty\protobuf-2.5.0\lib\x64\Debug;$(SolutionDir)..\3rdparty\gflags.2.0.1.0\lib\x64\v120\Debug;$(SolutionDir)..\3rdparty\glog.0.3.3.0\lib\x64\v120\Debug;$(SolutionDir)..\3rdparty\LevelDB.1.2.0.0\lib\x64\v120\Debug;$(SolutionDir)..\3rdparty\lmdb.0.9.14.0\lib\x64\v120;$(SolutionDir)..\3rdparty\OpenBLAS.0.2.14.1\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <Target Name="OriginalBuild" Condition="'$(PythonSupport)'=='true'" DependsOnTargets="$(OriginalBuildTargets)" />
+  <Target Name="SkipBuild" Condition="'$(PythonSupport)'!='true'">
+    <Message Text="Skipping project $(ProjectName), Python support is not enabled in CommonSettings.props." Importance="High" />
+  </Target>
+</Project>
