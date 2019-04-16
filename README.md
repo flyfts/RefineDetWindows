@@ -47,7 +47,7 @@ PASCAL VOC models (VGG-16): <br>
 * 07++12: [RefineDet320](https://drive.google.com/open?id=1d1T_tTImZynD88CoB0OF0rdFXgp4E_le), [RefineDet512](https://drive.google.com/open?id=1h9IrfBHKnO1tQq3PWmo0TLhQcx7lUHhj) <br>
 * COCO: [RefineDet320](https://drive.google.com/open?id=1dl-eyCZgDv_UwxGb2c1Usaqq2u2u7sqz), [RefineDet512](https://drive.google.com/open?id=1vJ8CZlOocsF5cASr3k2Or1vQx-hTfxs6) <br>
 * 07+12+COCO: [RefineDet320](https://drive.google.com/open?id=1c8umLHI-x68uxT7CcCirFPhykPkyYUzC), [RefineDet512](https://drive.google.com/open?id=1-d4w152HsEaYgWY7v4_6zqxxQIijlHjX) <br>
-* 07++12+COCO: [RefineDet320](https://drive.google.com/open?id=1pti47J-oE7Os02vNvO0JIrQp3_FQR70v), [RefineDet512](https://drive.google.com/open?id=1ZwnO_F1Pqdg1xyNSa-0XPEuh7knel9L_) <br><br>
+* 07++12+COCO: [RefineDet320](https://drive.google.com/open?id=1pti47J-oE7Os02vNvO0JIrQp3_FQR70v), [RefineDet512](https://drive.google.com/open?id=1ZwnO_F1Pqdg1xyNSa-0XPEuh7knel9L_) <br>
 
 COCO models: <br> 
 * trainval35k (VGG-16): [RefineDet320](https://drive.google.com/open?id=1BIVvkSQM8DarpeqOpjgPpDxUoFq9ZxKM), [RefineDet512](https://drive.google.com/open?id=16j7gmHvd82LSog52kBXUUYyLx26mOV_6) <br>
