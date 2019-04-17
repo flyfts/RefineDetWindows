@@ -53,6 +53,6 @@ COCO models: <br>
 * trainval35k (VGG-16): [RefineDet320](https://drive.google.com/open?id=1BIVvkSQM8DarpeqOpjgPpDxUoFq9ZxKM), [RefineDet512](https://drive.google.com/open?id=16j7gmHvd82LSog52kBXUUYyLx26mOV_6) <br>
 * trainval35k (ResNet101): [RefineDet320](https://drive.google.com/open?id=1yrCfPIyKNsD9aBnn5iooFoX414FzXvzH), [RefineDet512](https://drive.google.com/open?id=1KWdfrowNIJqJF0j-ZxkQpkbAcPPbwAS1) <br>
 
-Note: If you can not download pre-trained models through the above links, you can download them through BaiduYun.
+Note: If you can not download pre-trained models through the above links, you can download them through [BaiduYun](http://pan.baidu.com/s/1gf8J7Yr).
 
 
